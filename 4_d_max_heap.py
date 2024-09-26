@@ -55,20 +55,14 @@ class MaxHeap:
 
 
 if __name__ == '__main__':
-    # _n = int(input())
+    _n = int(input())
 
     heap = MaxHeap()
 
-    heap.insert(5)
-    heap.insert(12)
-    heap.insert(7)
-    heap.insert(2)
-    heap.insert(1)
-    heap.insert(16)
-    heap.insert(0)
-    heap.insert(11)
-    heap.insert(5)
-    heap.insert(3)
+    for _ in range(_n):
+        cmd = list(map(int, input().split()))
 
-    while heap.size() > 0:
-        print(heap.extract_max())
+        if cmd[0] == 0:
+            heap.insert(cmd[1])
+        elif cmd[0] == 1:
+            print(heap.extract_max())

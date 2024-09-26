@@ -2,10 +2,10 @@ def partition_hoare(a, left, right):
     x = a[left + (right - left) // 2]
 
     i = left
-    j = right - 1
+    j = right
 
     while True:
-        while a[i] < x and i < right - 1:
+        while a[i] < x and i < right:
             i += 1
 
         while a[j] > x and j > left:
@@ -22,9 +22,9 @@ def partition_hoare(a, left, right):
 
 def quick_sort(a, left=0, right=-1):
     if right == -1:
-        right = len(a)
+        right = len(a) - 1
 
-    while left < right - 1:
+    while left < right:
         m = partition_hoare(a, left, right)
 
         if m - left < right - m:

@@ -34,5 +34,5 @@ if __name__ == '__main__':
 
     recursions_count = quick_sort(_arr)
 
-    print(recursions_count - 1)
+    print(recursions_count - 1 if recursions_count > 0 else 0)
     print(*_arr)
