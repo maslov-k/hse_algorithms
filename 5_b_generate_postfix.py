@@ -1,16 +1,9 @@
-def is_operation(sym):
-    return sym in ['+', '-', '*', '/']
-
-
-def priority(sym):
-    priorities = {
-        '+': 0,
-        '-': 1,
-        '*': 2,
-        '/': 3
-    }
-
-    return priorities.get(sym, -1)
+PRIORITIES = {
+    '+': 0,
+    '-': 1,
+    '*': 2,
+    '/': 3
+}
 
 
 def generate_postfix(infix_str):
@@ -31,8 +24,8 @@ def generate_postfix(infix_str):
             while stack[-1] != '(':
                 result.append(stack.pop())
             stack.pop()
-        elif is_operation(sym):
-            while stack and priority(stack[-1]) > priority(sym):
+        elif sym in PRIORITIES:
+            while stack and PRIORITIES[stack[-1]] > PRIORITIES[sym]:
                 result.append(stack.pop())
 
             stack.append(sym)
