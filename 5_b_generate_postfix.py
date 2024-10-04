@@ -7,7 +7,7 @@ def priority(sym):
         '+': 0,
         '-': 1,
         '*': 2,
-        '/': 2
+        '/': 3
     }
 
     return priorities.get(sym, -1)
