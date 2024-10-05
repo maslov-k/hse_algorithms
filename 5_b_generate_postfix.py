@@ -1,8 +1,8 @@
 PRIORITIES = {
     '+': 0,
-    '-': 1,
+    '-': 0,
     '*': 2,
-    '/': 3
+    '/': 2
 }
 
 
@@ -25,7 +25,7 @@ def generate_postfix(infix_str):
                 result.append(stack.pop())
             stack.pop()
         elif sym in PRIORITIES:
-            while stack and PRIORITIES[stack[-1]] > PRIORITIES[sym]:
+            while stack and stack[-1] in PRIORITIES and PRIORITIES[stack[-1]] >= PRIORITIES[sym]:
                 result.append(stack.pop())
 
             stack.append(sym)

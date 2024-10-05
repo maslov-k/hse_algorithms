@@ -24,7 +24,7 @@ def calc_postfix(symbols):
             a = stack.pop()
             stack.append(calc_operation(a, b, sym))
 
-    return None if len(stack) == 0 else stack.pop()
+    return None if not stack else stack.pop()
 
 
 if __name__ == '__main__':

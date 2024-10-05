@@ -11,7 +11,7 @@ def is_brackets_correct(str):
         if c in brackets.values():
             stack.append(c)
         elif c in brackets:
-            if stack.pop() != brackets[c]:
+            if not stack or stack.pop() != brackets[c]:
                 return False
 
     return len(stack) == 0
